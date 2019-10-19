@@ -2,7 +2,7 @@ import React from "react";
 import OptGroup from "./OptGroup";
 import Option from "./Option";
 
-export default function Select({ breeds }) {
+export default function Select({ breeds, name }) {
   const entries = Object.entries(breeds);
   const options = entries.map((entry, index) => {
     const [breed, subs] = entry;
@@ -13,5 +13,5 @@ export default function Select({ breeds }) {
     }
   });
 
-  return <select>{options}</select>;
+  return <select name={name}>{options}</select>;
 }
