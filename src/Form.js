@@ -1,18 +1,18 @@
 import React from "react";
 import Select from "./Select";
 
-export default function Form({ breeds }) {
+export default function Form({ breeds, doRequest }) {
   const formName = "form";
   const selectName = "select";
   const handlerSubmit = event => {
     event.preventDefault();
     const form = document.forms[formName];
-    const selected = form.elements[selectName].value;
-    console.log(selected);
+    const dogs = form.elements[selectName].value;
+    doRequest(`https://dog.ceo/api/breed/${dogs}/images/random/20`);
   };
   const handlerReset = event => {
     event.preventDefault();
-    console.log("random");
+    doRequest("https://dog.ceo/api/breeds/image/random/20");
   };
 
   return (
