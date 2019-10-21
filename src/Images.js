@@ -1,20 +1,23 @@
 import React from "react";
 
-const divStyle = {
-  display: "flex",
-  flexFlow: "row wrap",
-  alignTtems: "center",
-  justifyContent: "space-around"
-};
-
-const imgStyle = {
-  flex: "0 1",
-  boxSizing: "border-box",
-  padding: "20px",
-  maxWidth: "100%"
-};
-
 export default function Images({ images }) {
+  const divStyle = {
+    display: "flex",
+    flexFlow: "row wrap",
+    alignItems: "center",
+    justifyContent: "space-around",
+    margin: "20px"
+  };
+
+  const imgStyle = {
+    flex: "0 0 auto",
+    boxSizing: "border-box",
+    margin: "20px",
+    maxWidth: "100%",
+    border: "10px solid grey",
+    borderRadius: "10px"
+  };
+
   return (
     <div style={divStyle}>
       {images.map((path, index) => {
