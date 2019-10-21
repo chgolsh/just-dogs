@@ -2,6 +2,15 @@ import React from "react";
 import Select from "./Select";
 
 export default function Form({ breeds, doRequest }) {
+  const formStyle = {
+    margin: "0 auto",
+    fontSize: "1.2rem",
+    textAlign: "center"
+  };
+
+  const buttonStyle = {
+    fontSize: "inherit"
+  };
   const formName = "form";
   const selectName = "select";
   const handlerSubmit = event => {
@@ -24,8 +33,9 @@ export default function Form({ breeds, doRequest }) {
       onReset={event => {
         handlerReset(event);
       }}
+      style={formStyle}
     >
-      <table>
+      <table style={{ margin: "0 auto" }}>
         <caption> Выберите породу собак для отображения:</caption>
         <tbody>
           <tr>
@@ -33,12 +43,16 @@ export default function Form({ breeds, doRequest }) {
               <Select name={selectName} breeds={breeds}></Select>
             </td>
             <td>
-              <button type="submit">Запросить фото</button>
+              <button style={buttonStyle} type="submit">
+                Получить
+              </button>
             </td>
           </tr>
           <tr>
             <td colSpan="2">
-              <button type="reset">Случайные фото</button>
+              <button style={buttonStyle} type="reset">
+                Случайные фото
+              </button>
             </td>
           </tr>
         </tbody>

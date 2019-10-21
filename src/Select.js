@@ -3,6 +3,10 @@ import OptGroup from "./OptGroup";
 import Option from "./Option";
 
 export default function Select({ breeds, name }) {
+  const style = {
+    fontSize: "inherit",
+    textTransform: "capitalize"
+  };
   const entries = Object.entries(breeds);
   const options = entries.map((entry, index) => {
     const [breed, subs] = entry;
@@ -13,5 +17,9 @@ export default function Select({ breeds, name }) {
     }
   });
 
-  return <select name={name}>{options}</select>;
+  return (
+    <select style={style} name={name}>
+      {options}
+    </select>
+  );
 }

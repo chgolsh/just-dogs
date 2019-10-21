@@ -2,7 +2,6 @@ import React from "react";
 import Form from "./Form";
 import Images from "./Images";
 import useDataApi from "./useDataApi";
-import "./App.css";
 
 function App() {
   const [imagesState, setUrl] = useDataApi(
@@ -17,7 +16,7 @@ function App() {
 
   if (imagesState.isLoaded && formState.isLoaded) {
     return (
-      <div className="App">
+      <div>
         <Form doRequest={setUrl} breeds={formState.data.message}></Form>
         <Images images={imagesState.data.message}></Images>
       </div>
