@@ -7,7 +7,7 @@ function App() {
   const [imagesState, setUrl] = useDataApi(
     "https://dog.ceo/api/breeds/image/random/20",
     {
-      message: {}
+      message: []
     }
   );
   const [formState] = useDataApi("https://dog.ceo/api/breeds/list/all", {
@@ -18,8 +18,8 @@ function App() {
   if (imagesState.isLoaded && formState.isLoaded) {
     result = (
       <React.Fragment>
-        <Form doRequest={setUrl} breeds={formState.data.message}></Form>
-        <Images images={imagesState.data.message}></Images>)
+        <Form doRequest={setUrl} data={formState.data}></Form>
+        <Images data={imagesState.data}></Images>)
       </React.Fragment>
     );
   } else if (imagesState.isError || formState.isError) {

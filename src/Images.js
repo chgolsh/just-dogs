@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Images({ images }) {
+export default function Images({ data }) {
   const divStyle = {
     display: "flex",
     flexFlow: "row wrap",
@@ -20,7 +20,7 @@ export default function Images({ images }) {
 
   return (
     <div style={divStyle}>
-      {images.map((path, index) => {
+      {data.message.map((path, index) => {
         return <img style={imgStyle} key={index} src={path} alt=""></img>;
       })}
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "./Select";
 
-export default function Form({ breeds, doRequest }) {
+export default function Form({ data, doRequest }) {
   const formStyle = {
     margin: "0 auto",
     fontSize: "1.2rem",
@@ -40,7 +40,7 @@ export default function Form({ breeds, doRequest }) {
         <tbody>
           <tr>
             <td>
-              <Select name={selectName} breeds={breeds}></Select>
+              <Select name={selectName} data={data}></Select>
             </td>
             <td>
               <button style={buttonStyle} type="submit">

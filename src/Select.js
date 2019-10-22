@@ -2,12 +2,12 @@ import React from "react";
 import OptGroup from "./OptGroup";
 import Option from "./Option";
 
-export default function Select({ breeds, name }) {
+export default function Select({ data, name }) {
   const style = {
     fontSize: "inherit",
     textTransform: "capitalize"
   };
-  const entries = Object.entries(breeds);
+  const entries = Object.entries(data.message);
   const options = entries.map((entry, index) => {
     const [breed, subs] = entry;
     if (subs.length > 0) {
