@@ -28,7 +28,7 @@ function App() {
   } else if (imagesState.isError || breedsState.isError) {
     result = <h2>Проблемы при получении данных от сервера</h2>;
   } else {
-    result = <h3>Загрузка...</h3>;
+    result = <h3 style={{ textAlign: "center" }}>Загрузка...</h3>;
   }
 
   return <div>{result}</div>;

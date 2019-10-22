@@ -3,6 +3,12 @@ import axios from "axios";
 
 function reducer(state, action) {
   switch (action.type) {
+    case "FETCH_RESET":
+      return {
+        ...state,
+        isError: false,
+        isLoaded: false
+      };
     case "FETCH_SUCCESS":
       return {
         ...state,
@@ -30,6 +36,7 @@ export default function useDataApi(initialUrl, initialData) {
   });
 
   useEffect(() => {
+    dispatch({ type: "FETCH_RESET" });
     const dataFetch = async () => {
       try {
         const result = await axios(url);
