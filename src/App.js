@@ -14,26 +14,21 @@ function App() {
     message: {}
   });
 
+  let result;
   if (imagesState.isLoaded && formState.isLoaded) {
-    return (
-      <div>
+    result = (
+      <React.Fragment>
         <Form doRequest={setUrl} breeds={formState.data.message}></Form>
-        <Images images={imagesState.data.message}></Images>
-      </div>
+        <Images images={imagesState.data.message}></Images>)
+      </React.Fragment>
     );
   } else if (imagesState.isError || formState.isError) {
-    return (
-      <div>
-        <h2>Проблемы при получении данных от сервера</h2>
-      </div>
-    );
+    result = <h2>Проблемы при получении данных от сервера</h2>;
   } else {
-    return (
-      <div>
-        <h3>Загрузка...</h3>
-      </div>
-    );
+    result = <h3>Загрузка...</h3>;
   }
+
+  return <div>{result}</div>;
 }
 
 export default App;
