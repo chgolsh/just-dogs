@@ -16,13 +16,17 @@ function App() {
   });
 
   let result;
-  if (imagesState.isLoaded && breedsState.isLoaded) {
+  if (breedsState.isLoaded) {
     result = (
       <React.Fragment>
         <Form doRequest={setUrl} selectName={"select"}>
           <Select name={"select"} data={breedsState.data}></Select>
         </Form>
-        <Images data={imagesState.data}></Images>)
+        <Images
+          data={imagesState.data}
+          isLoaded={imagesState.isLoaded}
+        ></Images>
+        )
       </React.Fragment>
     );
   } else if (imagesState.isError || breedsState.isError) {

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Images({ data }) {
+export default function Images({ data, isLoaded }) {
   const divStyle = {
     display: "flex",
     flexFlow: "row wrap",
@@ -18,11 +18,15 @@ export default function Images({ data }) {
     borderRadius: "10px"
   };
 
-  return (
-    <div style={divStyle}>
-      {data.message.map((path, index) => {
-        return <img style={imgStyle} key={index} src={path} alt=""></img>;
-      })}
-    </div>
-  );
+  if (isLoaded) {
+    return (
+      <div style={divStyle}>
+        {data.message.map((path, index) => {
+          return <img style={imgStyle} key={index} src={path} alt=""></img>;
+        })}
+      </div>
+    );
+  } else {
+    return <h3 style={{ textAlign: "center" }}>Загрузка...</h3>;
+  }
 }
