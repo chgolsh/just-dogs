@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "./Form";
+import Select from "./Select";
 import Images from "./Images";
 import useDataApi from "./useDataApi";
 
@@ -10,19 +11,21 @@ function App() {
       message: []
     }
   );
-  const [formState] = useDataApi("https://dog.ceo/api/breeds/list/all", {
+  const [breedsState] = useDataApi("https://dog.ceo/api/breeds/list/all", {
     message: {}
   });
 
   let result;
-  if (imagesState.isLoaded && formState.isLoaded) {
+  if (imagesState.isLoaded && breedsState.isLoaded) {
     result = (
       <React.Fragment>
-        <Form doRequest={setUrl} data={formState.data}></Form>
+        <Form doRequest={setUrl} selectName={"select"}>
+          <Select name={"select"} data={breedsState.data}></Select>
+        </Form>
         <Images data={imagesState.data}></Images>)
       </React.Fragment>
     );
-  } else if (imagesState.isError || formState.isError) {
+  } else if (imagesState.isError || breedsState.isError) {
     result = <h2>Проблемы при получении данных от сервера</h2>;
   } else {
     result = <h3>Загрузка...</h3>;
